@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "./button";
 const NavBar = () => {
     return (
         <nav className="navbar navbar-light bg-light justify-content-between px-5">
@@ -8,7 +9,7 @@ const NavBar = () => {
                     style={{
                         fontFamily: "Poppins",
                         fontWeight: "bold",
-                        fontSize: "32px",
+                        fontSize: "2rem",
                         color: "#1E4FCE",
                     }}
                 >
@@ -16,13 +17,7 @@ const NavBar = () => {
                 </div>
             </Link>
             <form className="form-inline">
-                <button
-                    style={{ borderRadius: "58px", fontWeight: "bold" }}
-                    className="btn btn-outline-success my-2 my-sm-0"
-                    type="submit"
-                >
-                    Get Help?
-                </button>
+                <Button text="Get Help?" />
             </form>
         </nav>
     );
