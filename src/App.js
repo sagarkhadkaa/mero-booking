@@ -1,11 +1,16 @@
 import "./App.css";
 import AppointmentBookingForm from "./components/appointmentBookingForm";
-import Button from "./components/button";
 import Footer from "./components/footer";
 import NavBar from "./components/navBar";
 function App() {
     return (
-        <div className="App">
+        <div
+            className="App"
+            style={{
+                display: "flex",
+                flexDirection: "column",
+            }}
+        >
             <NavBar />
             <AppointmentBookingForm />
             <Footer />
