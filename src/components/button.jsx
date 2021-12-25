@@ -1,21 +1,23 @@
 import React from "react";
-const Button = (props) => {
-    const borderCustomize = () => {
-        if (!props.borderColor) return "1px solid black";
-    };
+const Button = ({
+    borderColor = "1px solid black",
+    backgroundColor,
+    textColor = "#000",
+    text,
+}) => {
     return (
         <button
             style={{
                 borderRadius: "3.625rem",
                 fontWeight: "bold",
-                backgroundColor: props.backgroundColor,
-                color: props.textColor,
-                border: borderCustomize(),
+                backgroundColor: backgroundColor,
+                color: textColor,
+                border: borderColor,
             }}
-            className="btn btn my-2 my-sm-0"
+            className="btn btn"
             type="submit"
         >
-            {props.text}
+            {text}
         </button>
     );
 };

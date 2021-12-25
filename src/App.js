@@ -1,7 +1,8 @@
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
-import AppointmentBookingForm from "./components/appointmentBookingForm";
-import Footer from "./components/footer";
-import NavBar from "./components/navBar";
+import BookingAppointmentForm from "./components/bookingAppointmentForm";
+import Home from "./components/home";
+import ListingAppointmentsForm from "./components/listingAppointments";
 function App() {
     return (
         <div
@@ -11,9 +12,17 @@ function App() {
                 flexDirection: "column",
             }}
         >
-            <NavBar />
-            <AppointmentBookingForm />
-            <Footer />
+            <Switch>
+                <Route
+                    path="/bookingAppointments"
+                    component={BookingAppointmentForm}
+                />
+                <Route
+                    path="/listingAppointments"
+                    component={ListingAppointmentsForm}
+                />
+                <Route path="/" exact component={Home} />
+            </Switch>
         </div>
     );
 }

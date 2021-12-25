@@ -1,7 +1,4 @@
 import React from "react";
-import { Colors } from "../config/colors";
-
-// import Color from "../config/colors";
 
 const Footer = () => {
     return (
