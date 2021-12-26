@@ -8,13 +8,15 @@ const Button = ({
     return (
         <button
             style={{
-                borderRadius: "3.625rem",
+                borderRadius: "3.7vw",
                 fontWeight: "bold",
                 backgroundColor: backgroundColor,
                 color: textColor,
                 border: borderColor,
+                whiteSpace: "nowrap",
+                height: "100%",
             }}
-            className="btn btn"
+            className="btn btn-responsive"
             type="submit"
         >
             {text}

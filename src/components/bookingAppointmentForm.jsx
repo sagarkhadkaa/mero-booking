@@ -5,9 +5,9 @@ import Footer from "./footer";
 import NavBar from "./navBar";
 
 class BookingAppointmentForm extends Component {
-    state = {
-        formContainterClassName: "col-3",
-    };
+    // state = {
+    //     formContainterClassName: "col-8",
+    // };
     styles = {
         headerSection: {
             display: "flex",
@@ -28,8 +28,9 @@ class BookingAppointmentForm extends Component {
                         backgroundColor: Colors.white,
                         padding: "10px",
                         borderRadius: "5px",
+                        marginBottom: "100px",
                     }}
-                    className={`container-md mt-3 col-5 ${this.state.formContainterClassName}`}
+                    className={`container mt-3 col-11 col-sm-8 col-md-6 col-lg-5`}
                 >
                     <div style={this.styles.headerSection}>
                         <p
