@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
-import AppointmentCard from "./appointmentCard";
-import TestButton from "./testButton";
-import TimeSchedule from "./timeSchedule";
-const Home = () => {
-    return (
-        <div>
-            <AppointmentCard />
-            {/* <TimeSchedule /> */}
-        </div>
-    );
-};
+import React from "react";
+import "../assets/styles.css";
+import HeroBanner from "./HeroBanner";
+import HomeNavBar from "./homeNavbar";
 
-export default Home;
+export default function TestComponent() {
+    return (
+        <>
+            <HomeNavBar />
+            <HeroBanner />
+        </>
+    );
+}

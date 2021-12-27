@@ -49,7 +49,6 @@ const ListingAppointmentsForm = () => {
                     <AppointmentCard />
                     <AppointmentCard />
                     <AppointmentCard />
-                    <AppointmentCard />
                 </div>
             </div>
 
