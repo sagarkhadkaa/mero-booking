@@ -13,8 +13,8 @@ function HeroBanner() {
                         Start Booking your appointments.
                     </div>
                     <div className="section-text__body">
-                        The easiest book an appointment online. Always worth a
-                        browse. Where your journey begins
+                        Banking appointment maged easy. Always worth a browse.
+                        Where your journey begins
                     </div>
                     <Link to="/bookingAppointments" className="download-btn">
                         Get Started{" "}
