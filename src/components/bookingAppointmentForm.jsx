@@ -1,13 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
+import Form from "./common/form";
+import Joi from "joi-browser";
+import { Link } from "react-router-dom";
+import NavBar from "./navBar";
 import { Colors } from "../config/colors";
 import Button from "./button";
 import Footer from "./footer";
-import NavBar from "./navBar";
 
-class BookingAppointmentForm extends Component {
-    // state = {
-    //     formContainterClassName: "col-8",
-    // };
+class BookingAppointmentFormOld extends Form {
+    state = {
+        data: { name: "", email: "", phone: "" },
+        errors: {},
+    };
+
+    schema = {
+        name: Joi.string().required().label("Name"),
+        email: Joi.string().required().email().label("Email"),
+        phone: Joi.string().length(10).required().label("Phone Number"),
+    };
+
+    doSubmit = () => {
+        // Call the server
+        console.log("Submitted");
+    };
+
+    //Optimization
     styles = {
         headerSection: {
             display: "flex",
@@ -41,121 +58,93 @@ class BookingAppointmentForm extends Component {
                         >
                             Book New Appointment
                         </p>
-                        <Button text="Go Back" />
+                        <Link
+                            style={{
+                                height: "100%",
+                            }}
+                            to="/"
+                        >
+                            <Button
+                                text="Go Back"
+                                borderColor="1px solid black"
+                            />
+                        </Link>
                     </div>
                     <div>
-                        <form>
-                            <div className="form-row">
-                                <div className={this.formGroupClassName}>
-                                    <label htmlFor="user-name">Name</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="user-name"
-                                        aria-describedby="nameHelp"
-                                        placeholder="Phil Foden"
-                                    />
-                                </div>
-                                <div className={this.formGroupClassName}>
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            type="radio"
-                                            name="gender"
-                                            value="male"
-                                            className="form-check-input"
-                                            id="flexRadioDefault1"
-                                        />
-                                        <label
-                                            htmlFor="flexRadioDefault1"
-                                            className="form-check-label"
-                                        >
-                                            Male
-                                        </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            name="gender"
-                                            value="female"
-                                            className="form-check-input"
-                                            type="radio"
-                                            id="flexRadioDefault2"
-                                        />
-                                        <label
-                                            htmlFor="flexRadioDefault2"
-                                            className="form-check-label"
-                                        >
-                                            Female
-                                        </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            name="gender"
-                                            value="others"
-                                            className="form-check-input"
-                                            type="radio"
-                                            id="flexRadioDefault3"
-                                        />
-                                        <label
-                                            htmlFor="flexRadioDefault3"
-                                            className="form-check-label"
-                                        >
-                                            Others
-                                        </label>
-                                    </div>
-                                </div>
-                                <div className={this.formGroupClassName}>
-                                    <label htmlFor="user-email">
-                                        Email Address
-                                    </label>
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        id="user-email"
-                                        aria-describedby="emailHelp"
-                                        placeholder="phil.foden@gmail.com"
-                                    />
-                                </div>
-                                <div className={this.formGroupClassName}>
-                                    <label htmlFor="user-phone-number">
-                                        Phone Number
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="user-phone-number"
-                                        aria-describedby="phoneNumberHelp"
-                                        placeholder="9841000000"
-                                    />
-                                </div>
-                                <div className={this.formGroupClassName}>
-                                    <label htmlFor="user-address">
-                                        Address
-                                    </label>
+                        <form onSubmit={this.handleSubmit}>
+                            {this.renderInput(
+                                "name",
+                                "Name",
+                                "text",
+                                "Phil Foden"
+                            )}
+                            <div className="form-check form-check-inline">
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="male"
+                                    className="form-check-input"
+                                    id="flexRadioDefault1"
+                                />
+                                <label
+                                    htmlFor="flexRadioDefault1"
+                                    className="form-check-label"
+                                >
+                                    Male
+                                </label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input
+                                    name="gender"
+                                    value="female"
+                                    className="form-check-input"
+                                    type="radio"
+                                    id="flexRadioDefault2"
+                                />
+                                <label
+                                    htmlFor="flexRadioDefault2"
+                                    className="form-check-label"
+                                >
+                                    Female
+                                </label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input
+                                    name="gender"
+                                    value="others"
+                                    className="form-check-input"
+                                    type="radio"
+                                    id="flexRadioDefault3"
+                                />
+                                <label
+                                    htmlFor="flexRadioDefault3"
+                                    className="form-check-label"
+                                >
+                                    Others
+                                </label>
+                            </div>
 
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="user-address"
-                                        cols="50"
-                                    />
-                                </div>
-                                <div className={this.formGroupClassName}>
-                                    <label htmlFor="user-date">Date</label>
-                                    <input
-                                        type="date"
-                                        className="form-control"
-                                        id="user-date"
-                                        placeholder=""
-                                    />
-                                </div>
-                                <div className="p-2">
-                                    <Button
-                                        text="Book Appointment"
-                                        backgroundColor={Colors.secondary}
-                                        textColor={Colors.white}
-                                        borderColor="blue"
-                                    />
-                                </div>
+                            {this.renderInput(
+                                "email",
+                                "Email Address",
+                                "email",
+                                "phil.foden@gmail.com"
+                            )}
+                            {this.renderInput(
+                                "phone",
+                                "Phone Number",
+                                "tel",
+                                "9841000000"
+                            )}
+                            {this.renderInput("text", "Address", "text")}
+                            {this.renderInput("text", "Message", "text")}
+                            {this.renderInput("date", "Date", "date")}
+                            <div className="p-2">
+                                <Button
+                                    text="Book Appointment"
+                                    backgroundColor={Colors.secondary}
+                                    textColor={Colors.white}
+                                />
                             </div>
                         </form>
                     </div>
@@ -165,4 +154,5 @@ class BookingAppointmentForm extends Component {
         );
     }
 }
-export default BookingAppointmentForm;
+
+export default BookingAppointmentFormOld;

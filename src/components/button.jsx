@@ -1,6 +1,7 @@
 import React from "react";
 const Button = ({
-    borderColor = "1px solid black",
+    className,
+    borderColor = "",
     backgroundColor,
     textColor = "#000",
     text,
@@ -16,7 +17,7 @@ const Button = ({
                 whiteSpace: "nowrap",
                 height: "100%",
             }}
-            className="btn btn-responsive"
+            className={`btn btn-responsive ${className}`}
             type="submit"
         >
             {text}

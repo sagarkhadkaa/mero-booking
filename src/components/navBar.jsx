@@ -19,7 +19,7 @@ const NavBar = () => {
                 </div>
             </Link>
             <form className="form-inline">
-                <Button text="Get Help?" />
+                <Button text="Get Help?" borderColor="1px solid black" />
             </form>
         </nav>
     );

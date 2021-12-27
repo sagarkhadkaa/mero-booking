@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import AppointmentCard from "./appointmentCard";
 import TestButton from "./testButton";
+import TimeSchedule from "./timeSchedule";
 const Home = () => {
-    const [width, setWidth] = useState(window.innerWidth);
-
-    useEffect(() => {
-        setWidth(window.innerWidth);
-    }, [width]);
-    return <div>{width}</div>;
+    return (
+        <div>
+            <AppointmentCard />
+            {/* <TimeSchedule /> */}
+        </div>
+    );
 };
 
 export default Home;
