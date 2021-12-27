@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./input";
+import { Colors } from "../../config/colors";
 
 class Form extends Component {
     state = {
@@ -49,14 +50,23 @@ class Form extends Component {
     renderButton(label) {
         return (
             <button
+                style={{
+                    borderRadius: "3.7vw",
+                    fontWeight: "bold",
+                    backgroundColor: Colors.secondary,
+                    color: Colors.white,
+                    whiteSpace: "nowrap",
+                    height: "100%",
+                }}
                 disabled={this.validate()}
-                className="btn btn-primary mt-4 w-100"
+                // className="btn btn-primary mt-4 w-100"
+                className="btn btn-responsive"
             >
                 {label}
             </button>
         );
     }
-    renderInput(name, label, type = "text", placeholder) {
+    renderInput(name, label, type = "text", placeholder = "") {
         const { data, errors } = this.state;
 
         return (

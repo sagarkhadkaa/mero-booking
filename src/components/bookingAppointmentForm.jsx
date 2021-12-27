@@ -9,7 +9,14 @@ import Footer from "./footer";
 
 class BookingAppointmentFormOld extends Form {
     state = {
-        data: { name: "", email: "", phone: "" },
+        data: {
+            name: "",
+            email: "",
+            phone: "",
+            // addrass: "",
+            message: "",
+            date: "",
+        },
         errors: {},
     };
 
@@ -17,6 +24,9 @@ class BookingAppointmentFormOld extends Form {
         name: Joi.string().required().label("Name"),
         email: Joi.string().required().email().label("Email"),
         phone: Joi.string().length(10).required().label("Phone Number"),
+        // address: Joi.string().label("Address"),
+        message: Joi.string().required().label("Message"),
+        date: Joi.date().required().label("Date"),
     };
 
     doSubmit = () => {
@@ -47,7 +57,7 @@ class BookingAppointmentFormOld extends Form {
                         borderRadius: "5px",
                         marginBottom: "100px",
                     }}
-                    className={`container mt-3 col-11 col-sm-8 col-md-6 col-lg-5`}
+                    className={`container mt-2 col-11 col-sm-8 col-md-6 col-lg-5`}
                 >
                     <div style={this.styles.headerSection}>
                         <p
@@ -136,15 +146,26 @@ class BookingAppointmentFormOld extends Form {
                                 "tel",
                                 "9841000000"
                             )}
-                            {this.renderInput("text", "Address", "text")}
-                            {this.renderInput("text", "Message", "text")}
-                            {this.renderInput("date", "Date", "date")}
+                            {this.renderInput(
+                                "address",
+                                "Address",
+                                "text",
+                                "Address"
+                            )}
+                            {this.renderInput(
+                                "message",
+                                "Message",
+                                "text",
+                                "Messages"
+                            )}
+                            {this.renderInput(
+                                "date",
+                                "Date",
+                                "date",
+                                "message"
+                            )}
                             <div className="p-2">
-                                <Button
-                                    text="Book Appointment"
-                                    backgroundColor={Colors.secondary}
-                                    textColor={Colors.white}
-                                />
+                                {this.renderButton("Book Appointment")}
                             </div>
                         </form>
                     </div>
